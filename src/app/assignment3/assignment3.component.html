@@ -1,0 +1,12 @@
+<button (click)="onDisplayDetail()">Display details</button>
+<p *ngIf="showSecret">Secret Password = tuna</p>
+<p
+*ngFor="let Secret of Secrets, let i= index"
+[ngStyle]="{backgroundColor : i>=4 ? 'blue': 'transparent'}"
+[ngClass]="{white: i>=4}"
+>{{Secret}}</p>
+
+<br>Thời điểm hiện giỏ hàng: {{thoidiemHien|date:'dd/MM/Y H:m:s'}}
+<span class="float-end mt-2 h6 text-danger">
+  {{thoidiemHienHanh|date:'dd/MM/Y HH:mm:ss'}}
+</span>

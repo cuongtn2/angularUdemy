@@ -12,7 +12,11 @@ import { Component } from '@angular/core';
 export class ServersComponent {
   allowNewServer = false;
   serverCreationStatus = 'no server was created!';
-  serverName =''
+  serverName = 'TestServer';
+  userName = '';
+  serverCreated = false;
+  servers = ['TestServer 1', 'TestServer 2']
+
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true
@@ -24,11 +28,17 @@ export class ServersComponent {
   }
 
   onServerCreated() {
-    this.serverCreationStatus = 'server was created!'
+    this.serverCreated = true;
+    this.servers.push(this.serverName)
+    this.serverCreationStatus = `server was created!, Name is  ${this.serverName}`
   }
 
   onUpdateServerName(event: Event) {
     this.serverName = (<HTMLInputElement>event.target).value
   }
 
+  onCreateUsername() {
+    console.log('create username success')
+    this.userName =''
+  }
 }
